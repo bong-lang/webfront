@@ -1,14 +1,18 @@
-import { Button } from "@/components/ui/button";
+import Image from "next/image";
 
 export default function Home() {
 	return (
 		<main className="p-5 space-x-3">
-			<Button>Say &apos;Hello&apos;</Button>
-			<Button variant={"secondary"}>Say &apos;Hello&apos;</Button>
-			<Button variant={"outline"}>Say &apos;Hello&apos;</Button>
-			<Button variant={"ghost"}>Say &apos;Hello&apos;</Button>
-			<Button variant={"link"}>Say &apos;Hello&apos;</Button>
-			<Button variant={"destructive"}>Say &apos;Hello&apos;</Button>
+			<div className="">
+				<Image
+					src="/logo.svg"
+					alt="Logo"
+					width={512}
+					height={512}
+					priority
+					className="mx-auto my-32 h-auto max-w-[200px]"
+				/>
+			</div>
 		</main>
 	);
 }

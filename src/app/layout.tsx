@@ -3,12 +3,15 @@ import { Cabin } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme/provider";
 import { ModeToggle } from "@/components/ui/mode-toggle";
+import Header from "./header";
 
 const cabin = Cabin({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-	title: "Bong | Bengali Programming Language",
-	description: "Bong is a web based Bengali programming language for learning",
+	title: "Bong | Bengali Programming Learning Language",
+	description:
+		"Bong is a web based Bengali Programming Language for learning programming.",
+	icons: "/logo.svg",
 };
 
 export default function RootLayout({
@@ -25,6 +28,7 @@ export default function RootLayout({
 					enableSystem
 					disableTransitionOnChange
 				>
+					<Header />
 					{children}
 					<div className="fixed bottom-5 right-5">
 						<ModeToggle />
