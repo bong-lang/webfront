@@ -16,41 +16,42 @@ import React from "react";
 import { Button } from "@/components/ui/button";
 import { GitHubLogoIcon } from "@radix-ui/react-icons";
 
-const components: { title: string; href: string; description: string }[] = [
+const tutorials: { title: string; href: string; description: string }[] = [
 	{
-		title: "Alert Dialog",
-		href: "/docs/primitives/alert-dialog",
+		title: "C - Programming Language",
+		href: "/tutorials/c",
 		description:
-			"A modal dialog that interrupts the user with important content and expects a response.",
+			"C is a general-purpose, procedural computer programming language supporting structured programming, lexical variable scope, and recursion, with a static type system.",
 	},
 	{
-		title: "Hover Card",
-		href: "/docs/primitives/hover-card",
+		title: "C++ - Programming Language",
+		href: "/tutorials/cpp",
 		description:
-			"For sighted users to preview content available behind a link.",
+			"C++ is a general-purpose programming language created by Bjarne Stroustrup as an extension of the C programming language, or 'C with Classes'.",
 	},
 	{
-		title: "Progress",
-		href: "/docs/primitives/progress",
+		title: "Python - Programming Language",
+		href: "/tutorials/python",
 		description:
-			"Displays an indicator showing the completion progress of a task, typically displayed as a progress bar.",
+			"Python is an interpreted high-level general-purpose programming language. Python's design philosophy emphasizes code readability with its notable use of significant indentation.",
 	},
 	{
-		title: "Scroll-area",
-		href: "/docs/primitives/scroll-area",
-		description: "Visually or semantically separates content.",
+		title: "Java - Programming Language",
+		href: "/tutorials/java",
+		description:
+			"Java is a class-based, object-oriented programming language that is designed to have as few implementation dependencies as possible.",
 	},
 	{
-		title: "Tabs",
-		href: "/docs/primitives/tabs",
+		title: "JavaScript - Programming Language",
+		href: "/tutorials/javascript",
 		description:
-			"A set of layered sections of content—known as tab panels—that are displayed one at a time.",
+			"JavaScript is a high-level, often just-in-time compiled, and multi-paradigm programming language that conforms to the ECMAScript specification.",
 	},
 	{
-		title: "Tooltip",
-		href: "/docs/primitives/tooltip",
+		title: "HTML - Markup Language",
+		href: "/tutorials/html",
 		description:
-			"A popup that displays information related to an element when the element receives keyboard focus or the mouse hovers over it.",
+			"HTML is the standard markup language for documents designed to be displayed in a web browser. It can be assisted by technologies such as Cascading Style Sheets and scripting languages such as JavaScript.",
 	},
 ];
 
@@ -78,6 +79,7 @@ export default function Header() {
 					<Link
 						href={"https://github.com/bong-lang/"}
 						target="_blank"
+						passHref
 					>
 						<Button
 							size={"icon"}
@@ -127,7 +129,7 @@ function NavBar() {
 										</div>
 										<p className="text-sm leading-tight text-muted-foreground">
 											Beautifully designed & developed Bengali Programming
-											Learning Language
+											Learning Platform
 										</p>
 									</a>
 								</NavigationMenuLink>
@@ -136,53 +138,53 @@ function NavBar() {
 								href="/docs"
 								title="Introduction"
 							>
-								Re-usable components built using Radix UI and Tailwind CSS.
+								An overview of Bong and how to get started.
 							</ListItem>
 							<ListItem
-								href="/docs/installation"
-								title="Installation"
+								href="/docs/bong-lang"
+								title="Bong Lang"
 							>
-								How to install dependencies and structure your app.
+								An overview of Bong Lang and how to get started.
 							</ListItem>
 							<ListItem
-								href="/docs/primitives/typography"
-								title="Typography"
+								href="/docs/tutorial"
+								title="Tutorial"
 							>
-								Styles for headings, paragraphs, lists...etc
+								Step-by-step guide to learn Bong Lang.
 							</ListItem>
 						</ul>
 					</NavigationMenuContent>
 				</NavigationMenuItem>
 				<NavigationMenuItem>
 					<NavigationMenuTrigger className="bg-transparent">
-						Components
+						Tutorials
 					</NavigationMenuTrigger>
 					<NavigationMenuContent>
 						<ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px] ">
-							{components.map((component) => (
+							{tutorials.map((tutorial) => (
 								<ListItem
-									key={component.title}
-									title={component.title}
-									href={component.href}
+									key={tutorial.title}
+									title={tutorial.title}
+									href={tutorial.href}
 								>
-									{component.description}
+									{tutorial.description}
 								</ListItem>
 							))}
 						</ul>
+						<div className="flex flex-row items-center justify-center mb-4">
+							<Link
+								href="/tutorials"
+								passHref
+							>
+								<Button
+									size={"sm"}
+									variant={"link"}
+								>
+									See all Tutorials
+								</Button>
+							</Link>
+						</div>
 					</NavigationMenuContent>
-				</NavigationMenuItem>
-				<NavigationMenuItem>
-					<Link
-						href="/docs"
-						legacyBehavior
-						passHref
-					>
-						<NavigationMenuLink
-							className={cn(navigationMenuTriggerStyle(), "bg-transparent")}
-						>
-							Documentation
-						</NavigationMenuLink>
-					</Link>
 				</NavigationMenuItem>
 			</NavigationMenuList>
 		</NavigationMenu>
