@@ -4,8 +4,12 @@ import "./globals.css";
 import { ThemeProvider } from "@/components/theme/provider";
 import { ModeToggle } from "@/components/ui/mode-toggle";
 import Header from "./header";
+import { cn } from "@/lib/utils";
 
-const cabin = Cabin({ subsets: ["latin"] });
+const cabin = Cabin({
+	subsets: ["latin"],
+	weight: ["400", "500", "600", "700"],
+});
 
 export const metadata: Metadata = {
 	title: "Bong | Bengali Programming Learning Language",
@@ -21,10 +25,10 @@ export default function RootLayout({
 }>) {
 	return (
 		<html lang="en">
-			<body className={cabin.className}>
+			<body className={cn(cabin.className, "overflow-x-hidden")}>
 				<ThemeProvider
 					attribute="class"
-					defaultTheme="system"
+					defaultTheme="dark"
 					enableSystem
 					disableTransitionOnChange
 				>

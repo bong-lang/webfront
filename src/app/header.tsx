@@ -14,6 +14,7 @@ import { cn } from "@/lib/utils";
 import Image from "next/image";
 import React from "react";
 import { Button } from "@/components/ui/button";
+import { GitHubLogoIcon } from "@radix-ui/react-icons";
 
 const components: { title: string; href: string; description: string }[] = [
 	{
@@ -55,8 +56,8 @@ const components: { title: string; href: string; description: string }[] = [
 
 export default function Header() {
 	return (
-		<header className="w-screen">
-			<section className="flex flex-row items-center justify-start gap-10 px-9 py-3 mx-auto">
+		<header className="w-screen border-b sticky top-0 backdrop-blur-2xl transition-colors duration-500">
+			<section className="flex flex-row items-center justify-between gap-10 px-9 py-2 max-w-6xl mx-auto">
 				<Link
 					href="/"
 					passHref
@@ -67,13 +68,31 @@ export default function Header() {
 						width={36}
 						height={36}
 						priority
-						className="h-auto w-9"
+						className="h-9 w-9 min-w-9"
 					/>
 					<span className="text-lg font-medium sr-only">Bong Lang</span>
 				</Link>
 				<NavBar />
 				<div className="flex-1" />
-				<Button>Join Now</Button>
+				<section className="flex flex-row items-center justify-center gap-2">
+					<Link
+						href={"https://github.com/bong-lang/"}
+						target="_blank"
+					>
+						<Button
+							size={"icon"}
+							variant={"outline"}
+						>
+							<GitHubLogoIcon className="h-5 w-5" />
+						</Button>
+					</Link>
+					<Button
+						size={"sm"}
+						className="font-bold"
+					>
+						Join Now
+					</Button>
+				</section>
 			</section>
 		</header>
 	);
@@ -84,7 +103,9 @@ function NavBar() {
 		<NavigationMenu className="hidden md:inline-flex">
 			<NavigationMenuList>
 				<NavigationMenuItem>
-					<NavigationMenuTrigger>Getting started</NavigationMenuTrigger>
+					<NavigationMenuTrigger className="bg-transparent">
+						Getting started
+					</NavigationMenuTrigger>
 					<NavigationMenuContent>
 						<ul className="grid gap-3 p-4 md:w-[400px] lg:w-[500px] lg:grid-cols-[.75fr_1fr]">
 							<li className="row-span-3">
@@ -133,7 +154,9 @@ function NavBar() {
 					</NavigationMenuContent>
 				</NavigationMenuItem>
 				<NavigationMenuItem>
-					<NavigationMenuTrigger>Components</NavigationMenuTrigger>
+					<NavigationMenuTrigger className="bg-transparent">
+						Components
+					</NavigationMenuTrigger>
 					<NavigationMenuContent>
 						<ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px] ">
 							{components.map((component) => (
@@ -154,7 +177,9 @@ function NavBar() {
 						legacyBehavior
 						passHref
 					>
-						<NavigationMenuLink className={navigationMenuTriggerStyle()}>
+						<NavigationMenuLink
+							className={cn(navigationMenuTriggerStyle(), "bg-transparent")}
+						>
 							Documentation
 						</NavigationMenuLink>
 					</Link>

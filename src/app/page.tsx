@@ -13,6 +13,7 @@ export default function Home() {
 					className="mx-auto my-32 h-auto max-w-[200px]"
 				/>
 			</div>
+			<div className="h-[500vh]"></div>
 		</main>
 	);
 }
