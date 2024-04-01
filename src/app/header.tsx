@@ -13,6 +13,7 @@ import Link from "next/link";
 import { cn } from "@/lib/utils";
 import Image from "next/image";
 import React from "react";
+import { Button } from "@/components/ui/button";
 
 const components: { title: string; href: string; description: string }[] = [
 	{
@@ -54,22 +55,26 @@ const components: { title: string; href: string; description: string }[] = [
 
 export default function Header() {
 	return (
-		<header className="flex flex-row items-center justify-start gap-10 px-9 py-3">
-			<Link
-				href="/"
-				passHref
-			>
-				<Image
-					src="/logo.svg"
-					alt="Logo"
-					width={36}
-					height={36}
-					priority
-					className="h-auto w-9"
-				/>
-				<span className="text-lg font-medium sr-only">Bong Lang</span>
-			</Link>
-			<NavBar />
+		<header className="w-screen">
+			<section className="flex flex-row items-center justify-start gap-10 px-9 py-3 mx-auto">
+				<Link
+					href="/"
+					passHref
+				>
+					<Image
+						src="/logo.svg"
+						alt="Logo"
+						width={36}
+						height={36}
+						priority
+						className="h-auto w-9"
+					/>
+					<span className="text-lg font-medium sr-only">Bong Lang</span>
+				</Link>
+				<NavBar />
+				<div className="flex-1" />
+				<Button>Join Now</Button>
+			</section>
 		</header>
 	);
 }
